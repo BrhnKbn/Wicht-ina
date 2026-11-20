@@ -150,10 +150,18 @@ var WICHTEL_DB_URL = "";
     </section>
 
     <!-- Mitmachen -->
+     <section id="hinweise" class="info" aria-labelledby="infoTitle">
+      <h2 id="infoTitle">Hinweise</h2>
+      <ul>
+        <li><strong>Freiwillig:</strong> Das Mitmachen ist ein Angebot. Niemand muss teilnehmen.</li>
+        <li><strong>Wichtelwert:</strong> Das Geschenk darf höchstens 5 € kosten.</li>
+        <li><strong>Dein Code ist wichtig:</strong> Nach dem Eintragen bekommst du einen persönlichen Code. Mach direkt einen Screenshot oder schreib ihn auf. Er lässt sich nicht wiederherstellen. Wer ihn verliert, kann sein Los nicht mehr ansehen, und dann muss für alle neu ausgelost werden.</li>
+      </ul>
+    </section>
+
     <section id="joinCard" class="block" hidden>
       <h2>Mitmachen</h2>
-      <h3>Please save your Code! Otherwise we have to redo the drawing, which is not nice.</h3>
-      <form id="joinForm" class="row" autocomplete="off">
+        <form id="joinForm" class="row" autocomplete="off">
         <input id="joinInput" type="text" maxlength="40" placeholder="Dein Name" aria-label="Dein Name">
         <button class="btn primary" type="submit">Ich bin dabei</button>
       </form>
