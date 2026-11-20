@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Wichtelrunde</title>
+<title>Secret Santa 🎁</title>
 <style>
 /* Layout: eine schmale Spalte. Oben die Karte der eigenen Person (Code, später der Geschenkanhänger),
    darunter die Teilnehmerliste, ganz unten eingeklappt der Bereich für den Veranstalter. */
@@ -397,9 +397,9 @@ var WICHTEL_DB_URL = "";
     if (!S.loaded) { $('chip').textContent = '…'; $('sub').textContent = 'Lade …'; return; }
 
     var n = S.people.length, ready = !!S.curId, dr = drawn(), m = me();
-    $('chip').textContent = !ready ? 'Nicht gestartet' : (dr ? 'Ausgelost' : 'Anmeldung offen');
+    $('chip').textContent = !ready ? 'Not started' : (dr ? 'Draw done' : 'Sign-up open');
     $('chip').className = 'chip' + (dr ? ' done' : '');
-    $('sub').textContent = n === 0 ? 'Nobody has joined yet' : (n === 1 ? '1 Person dabei' : n + ' Personen dabei');
+    $('sub').textContent = n === 0 ? 'Nobody has joined yet' : (n === 1 ? '1 person has joined' : n + ' people have joined');
 
     $('notReady').hidden = ready;
     $('joinCard').hidden = !(ready && !dr && !m);
@@ -417,7 +417,7 @@ var WICHTEL_DB_URL = "";
       $('hideBtn').hidden = r.phase !== 'shown';
     }
 
-    $('peopleTitle').textContent = 'Teilnehmer (' + n + ')';
+    $('peopleTitle').textContent = 'Participants (' + n + ')';
     var ul = $('peopleList'); ul.textContent = '';
     if (!n) ul.append(h('li', 'empty', 'Nobody has signed up yet.'));
     S.people.forEach(function (p) {
