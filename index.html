@@ -130,40 +130,40 @@ var WICHTEL_DB_URL = "";
     <section id="meCard" class="block reveal" hidden aria-labelledby="meTitle">
       <h2 id="meTitle"></h2>
       <div id="meBefore" class="field">
-        <p class="muted">Das ist dein persönlicher Code. Mit ihm ziehst du nach der Auslosung deinen Wichtel, auch auf einem anderen Gerät. Mach einen Screenshot oder schreib ihn auf.</p>
+        <p class="muted">This is your personal code. You use it after the draw to draw your Secret Santa, also on another device. Take a screenshot or write it down.</p>
         <div id="myCode" class="codebox"></div>
-        <div class="row"><button id="copyCode" class="btn" type="button">Code kopieren</button></div>
-        <p class="muted">Sobald der Veranstalter ausgelost hat, öffne diese Seite erneut.</p>
+        <div class="row"><button id="copyCode" class="btn" type="button">Copy Code</button></div>
+        <p class="muted">Once the organizer has done the draw, open this page again.</p>
       </div>
       <div id="meAfter" class="tag-wrap" hidden>
         <div id="tag" class="tag" data-phase="idle">
-          <span class="tag-label">Du beschenkst</span>
+          <span class="tag-label">You are giving a gift to</span>
           <span id="tagName" class="tag-name" aria-hidden="true">?</span>
         </div>
         <span id="sr" class="sr" aria-live="polite"></span>
         <div class="row">
-          <button id="drawBtn" class="btn primary" type="button">Los ziehen</button>
-          <button id="hideBtn" class="btn" type="button" hidden>Verstecken</button>
+          <button id="drawBtn" class="btn primary" type="button">Draw</button>
+          <button id="hideBtn" class="btn" type="button" hidden>Hide</button>
         </div>
       </div>
-      <div class="row"><button id="forgetBtn" class="link" type="button">Das bin ich nicht</button></div>
+      <div class="row"><button id="forgetBtn" class="link" type="button">That's not me</button></div>
     </section>
 
     <!-- Mitmachen -->
      <section id="hinweise" class="info" aria-labelledby="infoTitle">
-      <h2 id="infoTitle">Hinweise</h2>
+      <h2 id="infoTitle">Note:</h2>
       <ul>
-        <li><strong>Freiwillig:</strong> Das Mitmachen ist ein Angebot. Niemand muss teilnehmen.</li>
-        <li><strong>Wichtelwert:</strong> Das Geschenk darf höchstens 5 € kosten.</li>
-        <li><strong>Dein Code ist wichtig:</strong> Nach dem Eintragen bekommst du einen persönlichen Code. Mach direkt einen Screenshot oder schreib ihn auf. Er lässt sich nicht wiederherstellen. Wer ihn verliert, kann sein Los nicht mehr ansehen, und dann muss für alle neu ausgelost werden.</li>
+         <li><strong>Voluntary:</strong> Taking part is an invitation, not an obligation. Nobody has to join.</li>
+         <li><strong>Gift value:</strong> The gift must not cost more than €5.</li>
+         <li><strong>Your code is important:</strong> After signing up you will get a personal code. Take a screenshot right away or write it down. It cannot be recovered. If you lose it, you can no longer see who you drew, and the draw would have to be redone for everyone.</li> 
       </ul>
     </section>
 
     <section id="joinCard" class="block" hidden>
-      <h2>Mitmachen</h2>
+      <h2>Join in</h2>
         <form id="joinForm" class="row" autocomplete="off">
-        <input id="joinInput" type="text" maxlength="40" placeholder="Dein Name" aria-label="Dein Name">
-        <button class="btn primary" type="submit">Ich bin dabei</button>
+        <input id="joinInput" type="text" maxlength="40" placeholder="Your Name" aria-label="Dein Name">
+        <button class="btn primary" type="submit">I'm in</button>
       </form>
     </section>
 
@@ -399,7 +399,7 @@ var WICHTEL_DB_URL = "";
     var n = S.people.length, ready = !!S.curId, dr = drawn(), m = me();
     $('chip').textContent = !ready ? 'Nicht gestartet' : (dr ? 'Ausgelost' : 'Anmeldung offen');
     $('chip').className = 'chip' + (dr ? ' done' : '');
-    $('sub').textContent = n === 0 ? 'Noch niemand dabei' : (n === 1 ? '1 Person dabei' : n + ' Personen dabei');
+    $('sub').textContent = n === 0 ? 'Nobody has joined yet' : (n === 1 ? '1 Person dabei' : n + ' Personen dabei');
 
     $('notReady').hidden = ready;
     $('joinCard').hidden = !(ready && !dr && !m);
@@ -419,7 +419,7 @@ var WICHTEL_DB_URL = "";
 
     $('peopleTitle').textContent = 'Teilnehmer (' + n + ')';
     var ul = $('peopleList'); ul.textContent = '';
-    if (!n) ul.append(h('li', 'empty', 'Noch niemand eingetragen.'));
+    if (!n) ul.append(h('li', 'empty', 'Nobody has signed up yet.'));
     S.people.forEach(function (p) {
       var li = h('li', 'person');
       li.append(h('span', 'pname', p.name));
